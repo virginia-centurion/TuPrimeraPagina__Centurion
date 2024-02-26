@@ -1,0 +1,24 @@
+{% extends 'AppCentu/base.html' %}
+
+{% block content %}
+    <h2 class="text-center">Sección Inicio</h2>
+    <h3>Buscar por número de comisión:</h3>
+    <form method="GET" action="{% url 'inicio' %}">
+        <div class="form-group">
+            <label for="search_query">Ingrese el número de comisión:</label>
+            <input type="text" class="form-control" id="search_query" name="search_query" placeholder="Ingrese el número de comisión">
+        </div>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+    {% if search_query %}
+        {% if cursos %}
+            <ul>
+                {% for curso in cursos %}
+                    <li>{{ curso.nombre }} - Comisión: {{ curso.comision }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No se encontraron cursos que coincidan con la búsqueda.</p>
+        {% endif %}
+    {% endif %}
+{% endblock %}

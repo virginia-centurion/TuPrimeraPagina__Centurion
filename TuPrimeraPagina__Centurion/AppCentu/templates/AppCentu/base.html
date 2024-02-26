@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    
+    <!-- Agregar los enlaces a Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <style>
+        /* Estilo para el menú horizontal */
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav li {
+            margin: 0 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* Estilo para la imagen de fondo */
+        .bg-masthead {
+            background-image: url("{% static 'assets/img/bg-masthead.jpg' %}");
+            background-position: center;
+            background-size: cover;
+            height: 150px; /* Altura deseada para la imagen */
+        }
+        /* Estilo para el texto del encabezado */
+        .masthead-text {
+            color: white;
+            text-align: center;
+            padding-top: 30px; /* Espacio sobre la imagen para el título */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1></h1>
+        <!-- Aquí podrías incluir un menú de navegación -->
+        <nav>
+            <ul>
+                <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                <li><a href="{% url 'curso' %}">Curso</a></li>
+                <li><a href="{% url 'estudiantes' %}">Estudiantes</a></li>
+                <li><a href="{% url 'profesores' %}">Profesores</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Aquí va la imagen de fondo -->
+    <div class="bg-masthead">
+        <div class="masthead-text">
+            <!-- Aquí podría ir el título de la sección activa -->
+            <h2>Entrega n° 3 </h2>
+        </div>
+    </div>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <!-- Aquí podrías incluir el pie de página -->
+        <p><h2>Hecho por Virginia Centurion  </h2></p>
+        <p>CoderHouse - Python Flex - Comision:56070 </p>
+    </footer>
+</body>
+</html>

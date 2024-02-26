@@ -1,0 +1,19 @@
+{% extends 'AppCentu/base.html' %}
+
+{% block content %}
+    <h2 class="text-center">Sección Cursos</h2>
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.nombre.id_for_label }}" class="col-form-label">Nombre del curso:</label>
+                {{ form.nombre }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.comision.id_for_label }}" class="col-form-label">Comisión:</label>
+                {{ form.comision }}
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+{% endblock %}
